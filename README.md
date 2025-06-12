@@ -33,29 +33,6 @@ isAuctionActive()	Returns a boolean indicating if the auction is still active.
 ⚙️ Installation and Testing in Remix
 Go to Remix IDE.
 
-Create a new file: Auction.sol.
-
-Paste the entire contract code into it.
-
-Compile with Solidity version ^0.8.20.
-
-Navigate to Deploy & Run Transactions:
-
-Select JavaScript VM as environment.
-
-Enter the duration in seconds (e.g. 300 for 5 minutes).
-
-Click Deploy.
-
-🧪 Example Test Scenario
-Step	Account	Action	Value (ETH)	Expected Result
-1	Account #1	placeBid()	1	Bid accepted, becomes highest bidder.
-2	Account #2	placeBid()	1.1	Valid (≥5% higher), becomes new highest bidder.
-3	Account #1	placeBid()	1.5	Outbids again. Deposit now 2.5 ETH total.
-4	Account #1	withdrawExcessDuringAuction()	—	Withdraws 1 ETH (excess from first bid).
-5	Owner	endAuction() (after time expired)	—	Finalizes the auction.
-6	Account #2	withdraw() (non-winner)	—	Gets refund minus 2% commission.
-
 📡 Events
 Event	Parameters	Description
 NewBid	address bidder, uint amount	Emitted whenever a valid new bid is placed.
